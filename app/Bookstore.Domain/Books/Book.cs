@@ -1,4 +1,5 @@
-﻿using Bookstore.Domain.ReferenceData;
+using Bookstore.Domain.ReferenceData;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bookstore.Domain.Books
 {
@@ -7,15 +8,15 @@ namespace Bookstore.Domain.Books
         public const int LowBookThreshold = 5;
 
         public Book(
-            string name, 
-            string author, 
-            string ISBN, 
-            int publisherId, 
-            int bookTypeId, 
+            string name,
+            string author,
+            string ISBN,
+            int publisherId,
+            int bookTypeId,
             int genreId,
             int conditionId,
             decimal price,
-            int quantity, 
+            int quantity,
             int? year = null,
             string? summary = null,
             string? coverImageUrl = null)
@@ -36,34 +37,47 @@ namespace Bookstore.Domain.Books
 
         public string Name { get; set; }
 
+        [Column("author")]
         public string Author { get; set; }
 
+        [Column("year")]
         public int? Year { get; set; }
 
+        [Column("isbn")]
         public string ISBN { get; set; }
 
         public ReferenceDataItem Publisher { get; set; }
+        [Column("publisherid")]
         public int PublisherId { get; set; }
 
         public ReferenceDataItem BookType { get; set; }
+        [Column("booktypeid")]
         public int BookTypeId { get; set; }
 
         public ReferenceDataItem Genre { get; set; }
+        [Column("genreid")]
         public int GenreId { get; set; }
 
         public ReferenceDataItem Condition { get; set; }
+        [Column("conditionid")]
         public int ConditionId { get; set; }
 
+        [Column("coverimageurl")]
         public string? CoverImageUrl { get; set; }
 
+        [Column("summary")]
         public string? Summary { get; set; }
 
+        [Column("price")]
         public decimal Price { get; set; }
 
+        [Column("quantity")]
         public int Quantity { get; set; }
 
+        [Column("isinstock")]
         public bool IsInStock => Quantity > 0;
 
+        [Column("islowinstock")]
         public bool IsLowInStock => Quantity <= LowBookThreshold;
 
         public void ReduceStockLevel(int quantity)
