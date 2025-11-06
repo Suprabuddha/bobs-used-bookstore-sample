@@ -49,7 +49,14 @@ namespace Bookstore.Web.Startup
             // the secret.
             const string DbSecretsParameterName = "dbsecretsname";
 
-            var connString = configuration.GetConnectionString("BookstoreDbDefaultConnection");
+            // Try environment variable first (production)
+            var connString = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING");
+            if (!string.IsNullOrEmpty(connString))
+            {
+                Console.WriteLine("Using environment variable connection string");
+                return connString;
+            }
+            connString = configuration.GetConnectionString("BookstoreDbDefaultConnection");
             if (!string.IsNullOrEmpty(connString))
             {
                 Console.WriteLine("Using localdb connection string");
