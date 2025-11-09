@@ -1,4 +1,4 @@
-﻿using Bookstore.Domain.Addresses;
+using Bookstore.Domain.Addresses;
 using Bookstore.Domain.Authors;
 using Bookstore.Domain.Books;
 using Bookstore.Domain.Carts;
@@ -8,6 +8,7 @@ using Bookstore.Domain.Orders;
 using Bookstore.Domain.Products;
 using Bookstore.Domain.ReferenceData;
 using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace Bookstore.Data
 {
@@ -42,6 +43,18 @@ namespace Bookstore.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Address>().ToTable("address", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<Book>().ToTable("book", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<Customer>().ToTable("customer", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<Order>().ToTable("Order", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<ShoppingCart>().ToTable("shoppingcart", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<ShoppingCartItem>().ToTable("shoppingcartitem", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<OrderItem>().ToTable("orderitem", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<Offer>().ToTable("offer", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<Author>().ToTable("author", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<Product>().ToTable("product", "bobsusedbookstore_dbo");
+            modelBuilder.Entity<ReferenceDataItem>().ToTable("referencedata", "bobsusedbookstore_dbo");
+
             modelBuilder.Entity<Customer>().HasIndex(x => x.Sub).IsUnique();
 
             modelBuilder.Entity<Book>().HasOne(x => x.Publisher).WithMany().HasForeignKey(x => x.PublisherId).OnDelete(DeleteBehavior.Restrict);
