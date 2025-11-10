@@ -1,6 +1,8 @@
 using Bookstore.Domain.Addresses;
 using Bookstore.Domain.Books;
 using Bookstore.Domain.Customers;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace Bookstore.Domain.Orders
 {
