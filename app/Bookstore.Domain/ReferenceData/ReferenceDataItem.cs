@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bookstore.Domain.ReferenceData
 {
@@ -14,6 +14,7 @@ namespace Bookstore.Domain.ReferenceData
             Text = text;
         }
 
+        [Column("datatype")]
         public ReferenceDataType DataType { get; set; }
 
         [Column("text")]

@@ -1,7 +1,10 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using Bookstore.Domain.Addresses;
 using Bookstore.Domain.Books;
 using Bookstore.Domain.Customers;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bookstore.Domain.Orders
 {
@@ -29,6 +32,7 @@ namespace Bookstore.Domain.Orders
         [Column("deliverydate")]
         public DateTime DeliveryDate { get; set; } = DateTime.Now.AddDays(7);
 
+        [Column("orderstatus")]
         public OrderStatus OrderStatus { get; set; } = OrderStatus.Pending;
 
         [Column("tax")]

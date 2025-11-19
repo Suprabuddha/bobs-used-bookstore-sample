@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using Bookstore.Domain.ReferenceData;
 
 namespace Bookstore.Domain.Books
@@ -49,22 +49,18 @@ namespace Bookstore.Domain.Books
         public string ISBN { get; set; }
 
         public ReferenceDataItem Publisher { get; set; }
-
         [Column("publisherid")]
         public int PublisherId { get; set; }
 
         public ReferenceDataItem BookType { get; set; }
-
         [Column("booktypeid")]
         public int BookTypeId { get; set; }
 
         public ReferenceDataItem Genre { get; set; }
-
         [Column("genreid")]
         public int GenreId { get; set; }
 
         public ReferenceDataItem Condition { get; set; }
-
         [Column("conditionid")]
         public int ConditionId { get; set; }
 

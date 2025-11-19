@@ -1,5 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using Bookstore.Domain.Customers;
 using Bookstore.Domain.ReferenceData;
 
@@ -43,35 +42,31 @@ namespace Bookstore.Domain.Offers
         public string? FrontUrl { get; set; }
 
         public ReferenceDataItem Genre { get; set; }
-
         [Column("genreid")]
         public int GenreId { get; set; }
 
         public ReferenceDataItem Condition { get; set; }
-
         [Column("conditionid")]
         public int ConditionId { get; set; }
 
         public ReferenceDataItem Publisher { get; set; }
-
         [Column("publisherid")]
         public int PublisherId { get; set; }
 
         public ReferenceDataItem BookType { get; set; }
-
         [Column("booktypeid")]
         public int BookTypeId { get; set; }
 
         [Column("summary")]
         public string? Summary { get; set; }
 
+        [Column("offerstatus")]
         public OfferStatus OfferStatus { get; set; } = OfferStatus.PendingApproval;
 
         [Column("comment")]
         public string? Comment { get; set; }
 
         public Customer Customer { get; set; }
-
         [Column("customerid")]
         public int CustomerId { get; set; }
 
