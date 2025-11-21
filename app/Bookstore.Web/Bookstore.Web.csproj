@@ -12,7 +12,7 @@
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
     <PackageReference Include="Amazon.Extensions.Configuration.SystemsManager" Version="2.1.0" />
     <PackageReference Include="AWS.Logger.AspNetCore" Version="3.3.0" />
     <PackageReference Include="AWSSDK.CloudWatchLogs" Version="3.7.2.87" />

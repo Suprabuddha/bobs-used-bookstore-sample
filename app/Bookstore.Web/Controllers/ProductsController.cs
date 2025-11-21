@@ -1,4 +1,4 @@
-using Bookstore.Data;
+﻿using Bookstore.Data;
 using Bookstore.Domain.Products;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -32,7 +32,7 @@ namespace Bookstore.Web.Controllers
         {
             try
             {
-                string sql = @"EXEC [dbo].[uspGetProductData];";
+                string sql = @"SELECT * FROM bobsusedbookstore_dbo.uspgetproductdata();";
 
                 return await _context.Database.SqlQueryRaw<Product>(sql).ToListAsync();
             }
